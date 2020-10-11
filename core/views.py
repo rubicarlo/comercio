@@ -9,7 +9,7 @@ def products(request):
         'items': Item.objects.all()
     }
 
-    return render(request, "products.html", context)
+    return render(request, "product.html", context)
 
 def checkout(request):
         return render(request, "checkout.html")
@@ -17,6 +17,11 @@ def checkout(request):
 class HomeView(ListView):
     model = Item
     template_name = "home.html"
+
+class ItemDetailView(DetailView):
+
+    model = Item
+    template_name = "product.html"
 
 def Home(request):
     context = {
