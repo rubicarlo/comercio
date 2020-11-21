@@ -32,6 +32,8 @@ def Home(request):
     return render(request, "home.html", context)
 
 def anadir_al_carro(request,slug):
+    import pdb;
+    pdb.set_trace()
     item=get_object_or_404(Item, slug=slug)
     order_item= OrderItem.objects.create(item=item)
     order_qs= Order.objects.filter(user=request.user, ordered=False)
